@@ -46,4 +46,17 @@ def get_stats():
             stats_dict[st_prog] = 1
     return jsonify(stats_dict)
 
+@app.route('/<operation>/<a>/<b>')
+def arithmatics(operation, a, b):
+    if operation.lower() == "addition":
+        return jsonify(round(float(a)+float(b), 3))
+    if operation.lower() == "subtraction":
+        return jsonify(round(float(a)-float(b), 3))
+    if operation.lower() == "multiplication":
+        return jsonify(round(float(a)*float(b), 3))
+    if operation.lower() == "division":
+        return jsonify(round(float(a)/float(b), 3))
+    error = "Huh?? Arithmatics error, check over the input."
+    return jsonify(error)
+    
 app.run(host='0.0.0.0', port=8080, debug=True)
