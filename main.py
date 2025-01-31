@@ -56,7 +56,7 @@ def arithmatics(operation, a, b):
         return jsonify(round(float(a)*float(b), 3))
     if operation.lower() == "division":
         return jsonify(round(float(a)/float(b), 3))
-    error = "Huh?? Arithmatics error, check over the input."
+    error = "Huh?? Error, check over the input."
     return jsonify(error)
     
 app.run(host='0.0.0.0', port=8080, debug=True)
